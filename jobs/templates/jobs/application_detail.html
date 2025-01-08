@@ -1,0 +1,11 @@
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+<h2>Application from {{ application.student.username }}</h2>
+<p><strong>Job:</strong> {{ application.job.title }}</p>
+<p><strong>Applied on:</strong> {{ application.applied_at|date:"d M Y" }}</p>
+<p><strong>Status:</strong> {{ application.status }}</p>
+<p><strong>Cover Letter:</strong></p>
+<p>{{ application.cover_letter|linebreaks }}</p>
+<a href="{% url 'view_applications' application.job.id %}">Back to Applications</a>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+<h2>{{ job.title }}</h2>
+<p><strong>Location:</strong> {{ job.location }}</p>
+<p><strong>Description:</strong> {{ job.description }}</p>
+<p><strong>Salary:</strong> ${{ job.salary }}</p>
+
+{% if user == job.employer %}
+    <h3>Applications</h3>
+    {% if applications %}
+        <ul>
+            {% for application in applications %}
+                <li>
+                    <strong>{{ application.student.username }}</strong> applied on {{ application.applied_at|date:"d M Y" }} <br>
+                    <p>{{ application.cover_letter|linebreaks }}</p>
+                    <a href="{% url 'application_detail' application.id %}">View Full Application</a>
+                </li>
+            {% empty %}
+                <p>No applications yet.</p>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% else %}
+    <!-- This is the student view where they can apply for the job -->
+    <form method="POST" action="{% url 'apply_job' job.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Apply for this job</button>
+    </form>
+{% endif %}
+
+{% endblock %}

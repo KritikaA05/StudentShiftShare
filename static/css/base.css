@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    
+    background-color: none;
+    margin-bottom: 10px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust spacing */
+    padding: 10px 20px; /* Add padding for a cleaner look */
+    background-color: none; /* Optional: background for the header */
+}
+
+.logo {
+    max-height: 60px; /* Adjust the height of the logo if necessary */
+    margin-right: 20px; /* Space between logo and nav */
+}
+
+nav {
+    display: flex;
+    gap: 20px; /* Space between navigation links */
+    flex-grow: 1;
+    
+}
+
+nav a {
+    width: 100px;
+    height: 40px;
+    background-color: #ffffff; /* Set your desired background color here */
+    color: #000000; /* Set the text color */
+    border:2px solid rgb(255, 255, 255); /* Remove border */
+    padding: 10px 15px; /* Add some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline from text */
+    font-size: 20px; /* Set font size */
+    margin-top: 6px;
+    cursor: pointer; /* Add a pointer cursor on hover */  
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  
+}
+
+nav a:hover {
+    text-decoration: underline 2px grey; /* Optional hover effect */
+    color: black;
+    font-weight: bold;
+
+    
+}
+
+

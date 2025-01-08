@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student ShiftShare</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center">
+            <img src="{% static 'images/logo.png' %}" alt="Student ShiftShare Logo" class="logo mb-3">
+            <h1>Find Flexible Part-Time Jobs Tailored for Students</h1>
+            <p class="lead">Manage your schedule, earn while you learn.</p>
+            <div>
+                <a href="{% url 'jobs' %}" class="btn btn-primary">Find Jobs</a>
+                <a href="{% url 'post_job' %}" class="btn btn-secondary">Post a Job</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Features Section -->
+    <section class="features-section text-center py-5">
+        <div class="container">
+            <h2>Our Features</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <i class="icon-job-listing"></i>
+                    <h3>Job Listings</h3>
+                    <p>Browse jobs by location, type, and shift timing.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="icon-collaboration"></i>
+                    <h3>Shift Collaboration</h3>
+                    <p>Collaborate with others to manage your shifts better.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="icon-notifications"></i>
+                    <h3>Notifications</h3>
+                    <p>Get alerts for new job postings and updates.</p>
+                </div>
+                <div class="col-md-3">
+                    <i class="icon-profile"></i>
+                    <h3>User Profiles</h3>
+                    <p>Create a profile to showcase your skills and preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5 bg-light">
+        <div class="container text-center">
+            <h2>What Our Users Say</h2>
+            <blockquote class="blockquote">
+                <p class="mb-0">"This platform made job hunting easier!"</p>
+                <footer class="blockquote-footer">Student A</footer>
+            </blockquote>
+            <blockquote class="blockquote">
+                <p class="mb-0">"Finding reliable part-time workers is now a breeze!"</p>
+                <footer class="blockquote-footer">Employer B</footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <div class="container">
+            <p>&copy; 2024 Student ShiftShare</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'about_us' %}">About Us</a></li>
+                <li class="list-inline-item"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                <li class="list-inline-item"><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="{% url 'terms_of_service' %}">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

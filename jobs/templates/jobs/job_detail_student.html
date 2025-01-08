@@ -1,0 +1,17 @@
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+<h2>{{ job.title }}</h2>
+<p><strong>Company:</strong> {{ job.employer.username }}</p>
+<p><strong>Location:</strong> {{ job.location }}</p>
+<p><strong>Salary:</strong> ${{ job.salary }}</p>
+<p><strong>Posted on:</strong> {{ job.created_at|date:"d M Y" }}</p>
+<p><strong>Description:</strong></p>
+<p>{{ job.description }}</p>
+
+{% if already_applied %}
+    <p><em>You have already applied for this job.</em></p>
+{% else %}
+    <a href="{% url 'apply_job' job.id %}">Apply for this Job</a>
+{% endif %}
+{% endblock %}

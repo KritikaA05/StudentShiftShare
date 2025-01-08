@@ -1,0 +1,109 @@
+/* Carousel Section */
+#banner {
+    position: relative;
+    
+    
+}
+.carousel-inner{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+}
+.carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+    background: linear-gradient(to right, rgb(11, 10, 10) 95%, rgba(0, 0, 0, 0.48));    
+    
+}
+
+
+
+.carousel-caption {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    
+    text-align: center;
+  
+    background:none;
+    padding: 120px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.carousel-caption h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.carousel-caption .btn {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.carousel-control-prev-icon {
+    padding: 15px;
+}
+
+.carousel-control-next-icon {
+    padding: 15px;
+}
+
+/* Indicators */
+.carousel-indicators li {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .carousel-caption {
+        bottom: 10%;
+        padding: 15px;
+    }
+
+    .carousel-caption h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-caption .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-inner img {
+        height: 300px;
+    }
+}

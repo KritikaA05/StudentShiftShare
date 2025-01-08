@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Applications for {{ job.title }}</h2>
+<ul>
+    {% for application in applications %}
+        <li>
+            <strong>{{ application.student.username }}</strong> applied on {{ application.applied_at|date:"d M Y" }} <br>
+            <p>{{ application.cover_letter|linebreaks }}</p>
+            <a href="{% url 'application_detail' application.id %}">View Full Application</a>
+        </li>
+    {% empty %}
+        <p>No applications yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
