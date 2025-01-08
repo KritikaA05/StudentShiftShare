@@ -16,7 +16,6 @@ urlpatterns = [
     # Job URLs
     path('post_job/', views.post_job, name='post_job'),
     path('jobs/', views.job_listings, name='job_listings'),
-    path('jobs/', views.job_list, name='jobs'), 
     path('jobs/<int:job_id>/', views.job_detail, name='job_detail'),  # Job details
     path('jobs/<int:job_id>/apply/', views.apply_job, name='apply_job'),  # Apply for job
     path('jobs/<int:job_id>/applications/', views.view_applications, name='view_applications'),  # View applications for a job
