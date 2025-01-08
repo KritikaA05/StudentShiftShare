@@ -143,3 +143,15 @@ def application_detail(request, application_id):
 def student_dashboard(request):
     jobs = Job.objects.all()
     return render(request, 'dashboard/student_dashboard.html', {'jobs': jobs})
+
+def about_us(request):
+    return render(request, 'about_us.html')
+
+def contact_us(request):
+    return render(request, 'contact_us.html')
+
+def terms_of_services(request):
+    return render(request, 'terms_of_services.html')
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
