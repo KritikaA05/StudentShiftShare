@@ -3,21 +3,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student ShiftShare</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiftShare</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="container text-center">
-            <img src="{% static 'images/logo.png' %}" alt="Student ShiftShare Logo" class="logo mb-3">
-            <h1>Find Flexible Part-Time Jobs Tailored for Students</h1>
-            <p class="lead">Manage your schedule, earn while you learn.</p>
+            <img src="{% static 'images/logo.png' %}" alt="ShiftShare Logo" class="logo mb-3">
+            <h1>Connect with Flexible Job Opportunities</h1>
+            <p class="lead">Whether you're seeking a part-time job or looking for workers, we've got you covered.</p>
             <div>
-                <a href="{% url 'job_listings' %}" class="btn btn-primary">Find Jobs</a>
+                <a href="{% url 'job_listings' %}" class="btn btn-primary">Browse Jobs</a>
                 <a href="{% url 'post_job' %}" class="btn btn-secondary">Post a Job</a>
             </div>
         </div>
@@ -26,7 +26,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <a class="navbar-brand" href="{% url 'home' %}">ShiftShare</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,22 +53,22 @@
                 <div class="col-md-3">
                     <i class="icon-job-listing"></i>
                     <h3>Job Listings</h3>
-                    <p>Browse jobs by location, type, and shift timing.</p>
+                    <p>Discover jobs that fit your schedule and skills.</p>
                 </div>
                 <div class="col-md-3">
                     <i class="icon-collaboration"></i>
                     <h3>Shift Collaboration</h3>
-                    <p>Collaborate with others to manage your shifts better.</p>
+                    <p>Coordinate with others to manage shifts effectively.</p>
                 </div>
                 <div class="col-md-3">
                     <i class="icon-notifications"></i>
-                    <h3>Notifications</h3>
-                    <p>Get alerts for new job postings and updates.</p>
+                    <h3>Real-Time Notifications</h3>
+                    <p>Stay updated on new job postings and responses.</p>
                 </div>
                 <div class="col-md-3">
                     <i class="icon-profile"></i>
-                    <h3>User Profiles</h3>
-                    <p>Create a profile to showcase your skills and preferences.</p>
+                    <h3>Comprehensive Profiles</h3>
+                    <p>Build a profile to showcase your experience and preferences.</p>
                 </div>
             </div>
         </div>
@@ -79,11 +79,11 @@
         <div class="container text-center">
             <h2>What Our Users Say</h2>
             <blockquote class="blockquote">
-                <p class="mb-0">"This platform made job hunting easier!"</p>
-                <footer class="blockquote-footer">Student A</footer>
+                <p class="mb-0">"ShiftShare helped me find a job that fits my schedule perfectly!"</p>
+                <footer class="blockquote-footer">User A</footer>
             </blockquote>
             <blockquote class="blockquote">
-                <p class="mb-0">"Finding reliable part-time workers is now a breeze!"</p>
+                <p class="mb-0">"The platform makes hiring part-time workers incredibly simple!"</p>
                 <footer class="blockquote-footer">Employer B</footer>
             </blockquote>
         </div>
@@ -92,7 +92,7 @@
     <!-- Footer -->
     <footer class="text-center py-4">
         <div class="container">
-            <p>&copy; 2024 Student ShiftShare</p>
+            <p>&copy; 2024 ShiftShare</p>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="{% url 'about_us' %}">About Us</a></li>
                 <li class="list-inline-item"><a href="{% url 'contact_us' %}">Contact Us</a></li>
