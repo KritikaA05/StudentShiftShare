@@ -10,23 +10,12 @@
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="container text-center">
-            <img src="{% static 'images/logo.png' %}" alt="ShiftShare Logo" class="logo mb-3">
-            <h1>Connect with Flexible Job Opportunities</h1>
-            <p class="lead">Whether you're seeking a part-time job or looking for workers, we've got you covered.</p>
-            <div>
-                <a href="{% url 'job_listings' %}" class="btn btn-primary">Browse Jobs</a>
-                <a href="{% url 'post_job' %}" class="btn btn-secondary">Post a Job</a>
-            </div>
-        </div>
-    </header>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="{% static 'images/logo.png' %}" alt="ShiftShare Logo" class="logo mb-3" href="{% url 'home' %}">
+           
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">ShiftShare</a>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,6 +33,20 @@
             </div>
         </div>
     </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center">
+            
+            <h1>Connect with Flexible Job Opportunities</h1>
+            <p class="lead">Whether you're seeking a part-time job or looking for workers, we've got you covered.</p>
+            <div>
+                <a href="{% url 'job_listings' %}" class="btn btn-primary">Browse Jobs</a>
+                <a href="{% url 'post_job' %}" class="btn btn-secondary">Post a Job</a>
+            </div>
+        </div>
+    </header>
+
 
     <!-- Features Section -->
     <section class="features-section text-center py-5">
