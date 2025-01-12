@@ -25,10 +25,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, 'Registration successful. Welcome!')
-            return redirect('dashboard')
-        else:
-            messages.error(request, 'Registration failed. Please try again.')
+            return redirect('home')  # Redirect to the home page after registration
     else:
         form = UserRegistrationForm()
     return render(request, 'jobs/register.html', {'form': form})
