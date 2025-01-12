@@ -6,11 +6,10 @@ from django.core.paginator import Paginator
 from .forms import UserRegistrationForm, ProfileForm, JobForm, JobApplicationForm
 from .models import Job, JobApplication, Profile
 
-# Utility function to check if a user is an employer
+# Utility functions
 def is_employer(user):
     return user.role == 'employer'
 
-# Utility function to check if a user is a student
 def is_student(user):
     return user.role == 'student'
 
@@ -25,7 +24,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')  # Redirect to the home page after registration
+            return redirect('dashboard')
     else:
         form = UserRegistrationForm()
     return render(request, 'jobs/register.html', {'form': form})
@@ -62,9 +61,9 @@ def post_job(request):
             job.employer = request.user
             job.save()
             messages.success(request, 'Job posted successfully!')
-            return redirect('dashboard')
+            return redirect('job_listings')
         else:
-            messages.error(request, 'Failed to post the job. Please try again.')
+            messages.error(request, 'Failed to post the job.')
     else:
         form = JobForm()
     return render(request, 'jobs/post_job.html', {'form': form})
@@ -72,7 +71,7 @@ def post_job(request):
 # Job Listings View
 def job_listings(request):
     job_list = Job.objects.all().order_by('-posted_at')
-    paginator = Paginator(job_list, 10)  # Show 10 jobs per page
+    paginator = Paginator(job_list, 10)
     page = request.GET.get('page')
     jobs = paginator.get_page(page)
     return render(request, 'jobs/job_listings.html', {'jobs': jobs})
@@ -114,7 +113,7 @@ def apply_job(request, job_id):
         form = JobApplicationForm()
     return render(request, 'jobs/apply_job.html', {'form': form, 'job': job})
 
-# View Applications View (for Employers)
+# View Applications View
 @login_required
 @user_passes_test(is_employer, login_url='dashboard')
 def view_applications(request, job_id):
@@ -129,22 +128,15 @@ def application_detail(request, application_id):
     application = get_object_or_404(JobApplication, id=application_id, job__employer=request.user)
     return render(request, 'jobs/application_detail.html', {'application': application})
 
-# Student Dashboard View
-@login_required
-@user_passes_test(is_student, login_url='dashboard')
-def student_dashboard(request):
-    jobs = Job.objects.all()
-    return render(request, 'dashboard/student_dashboard.html', {'jobs': jobs})
-
 # Static Pages
 def about_us(request):
-    return render(request, 'about_us.html')
+    return render(request, 'jobs/about_us.html')
 
 def contact_us(request):
-    return render(request, 'contact_us.html')
+    return render(request, 'jobs/contact_us.html')
 
 def terms_of_services(request):
-    return render(request, 'terms_of_services.html')
+    return render(request, 'jobs/terms_of_services.html')
 
 def privacy_policy(request):
-    return render(request, 'privacy_policy.html')
+    return render(request, 'jobs/privacy_policy.html')
