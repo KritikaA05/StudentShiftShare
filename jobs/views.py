@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from .forms import UserRegistrationForm, ProfileForm, JobForm, JobApplicationForm
 from .models import Job, JobApplication, Profile
+from django.contrib.auth.forms import UserCreationForm
 
 # Utility functions
 def is_employer(user):
@@ -20,15 +21,13 @@ def home(request):
 # User Registration View
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('dashboard')
+            form.save()
+            return redirect('login')
     else:
-        form = UserRegistrationForm()
+        form = UserCreationForm()
     return render(request, 'jobs/register.html', {'form': form})
-
 # Profile View
 @login_required
 def profile(request):
@@ -49,6 +48,13 @@ def profile(request):
 @login_required
 def dashboard(request):
     return render(request, 'jobs/dashboard.html')
+
+
+# Logout View
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'You have been logged out.')
+    return redirect('login')
 
 # Job Posting View
 @login_required
@@ -89,11 +95,6 @@ def job_detail(request, job_id):
     else:
         return redirect('dashboard')
 
-# Logout View
-def logout_view(request):
-    logout(request)
-    messages.success(request, 'You have been logged out.')
-    return redirect('login')
 
 # Apply for Job View
 @login_required
